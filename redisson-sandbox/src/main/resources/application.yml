@@ -1,0 +1,8 @@
+micronaut:
+  application:
+    name: Redisson Sandbox
+
+infrastructure:
+  redis:
+    host: w5070
+    port: 6379
