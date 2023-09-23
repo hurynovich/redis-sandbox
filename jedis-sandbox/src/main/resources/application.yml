@@ -4,5 +4,5 @@ micronaut:
 
 infrastructure:
   redis:
-    host: localhost
+    host: w5070
     port: 6379
