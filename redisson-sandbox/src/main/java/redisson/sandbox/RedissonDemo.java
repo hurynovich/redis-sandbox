@@ -18,6 +18,6 @@ public class RedissonDemo implements Runnable {
 
   public void run() {
     System.out.println("Counted keys: " + redisson.getKeys().count());
-    redisson.getKeys().getKeysByPattern("actor:*", 5).forEach(item -> {});
+    redisson.getKeys().getKeysByPattern("actor:*", 500).forEach(item -> {});
   }
 }

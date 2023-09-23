@@ -1,5 +1,6 @@
 package redisson.sandbox;
 
+import io.micronaut.context.annotation.Bean;
 import io.micronaut.context.annotation.Factory;
 import io.micronaut.context.annotation.Value;
 import jakarta.inject.Singleton;
@@ -14,6 +15,7 @@ import javax.validation.constraints.NotNull;
 public class RedisFactory {
 
   @Singleton
+  @Bean(preDestroy="shutdown")
   public RedissonClient newRedisson(
       @NotBlank @Value("${infrastructure.redis.host}") String host,
       @NotNull @Value("${infrastructure.redis.port}") Integer port
@@ -24,7 +26,7 @@ public class RedisFactory {
         .setPingConnectionInterval(60_000)
         .setDatabase(0)
         .setConnectionMinimumIdleSize(1)
-        .setConnectionPoolSize(100)
+        .setConnectionPoolSize(1)
         .setAddress("redis://" + host + ":" + port);
 
     return Redisson.create(config);
