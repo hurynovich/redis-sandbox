@@ -1,0 +1,8 @@
+micronaut:
+  application:
+    name: jedisSandbox
+
+infrastructure:
+  redis:
+    host: localhost
+    port: 6379
